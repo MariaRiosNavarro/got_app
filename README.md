@@ -21,28 +21,38 @@ The Shields are from [shutterstock](https://www.shutterstock.com/catalog/collect
 
 ### Home
 
-
+The title of GOT-quotes has a link to Home, the navigation takes us to the corresponding pages.
 
 ![home](/public/imgReadme/home.png)
 
 ### Houses
 
+Each house can be displayed with one click, offering information about the members of the house. Each of them has a link to their detailed character page.
+
 ![houses](/public/imgReadme/houses.png)
 ![houses](/public/imgReadme/houses2.png)
+
 ### Persons
+
+Each character can be displayed with a click, giving information about their home and giving one of their appointments. These appointments can be changed by clicking on the button that appears.
 
 ![houses](/public/imgReadme/persons.png)
 ![houses](/public/imgReadme/persons2.png)
 ### Quotes
+
+5 random quotes appear each time and can be changed by clicking on the button below.
 
 ![houses](/public/imgReadme/quotes.png)
 ![houses](/public/imgReadme/quotes2.png)
 
 ### Detail Person
 
+Information with photo of all the characters mentioned in the api, if there is no photo, the logo is used as placeholder. The character's house is listed at the end and it has a link to its detailed page.
+
 ![houses](/public/imgReadme/personDetail.png)
 ### Detail House
 
+Information with shield of all members of the house, each of them has a link to their detailed page. 
 
 ![houses](/public/imgReadme/houseDetail.png)
 ![houses](/public/imgReadme/houseDetail2.png)
