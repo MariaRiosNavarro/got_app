@@ -4,7 +4,9 @@
       <h3>Members:</h3>
       <ul>
         <li v-for="member in house.members" :key="member.name">
-          {{ member.name }}
+          <router-link :to="{ name: 'detailperson', params: { slug: member.slug } }">
+              {{ member.name }}
+          </router-link>
         </li>
       </ul>
     </div>
