@@ -4,7 +4,7 @@
     <h2 class="text-2xl font-bold mb-4">GOT Persons</h2>
       <div v-for="person in persons" :key="person.slug" className="collapse bg-base-200 my-[1rem] w-[50vw]">
         <input type="checkbox" className="peer" /> 
-          <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-primary-content ">
+          <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-primary-content after:content-['↓'] peer-checked:after:content-['↑']  ">
             <router-link :to="{ name: 'detailperson', params: { slug: person.slug } }">
               <h4 class="font-bold italic" @click="loadPersons(person.slug)">{{ person.name }}</h4>
             </router-link>
@@ -37,7 +37,9 @@ export default {
   data() {
     return {
       persons: [],
+      allQuotes: [],
       maxQuotesToShow: 1,
+      currentQuoteIndex: 0,
     };
   },
   created() {
@@ -48,6 +50,9 @@ export default {
       try {
         const response = await axios.get(import.meta.env.VITE_VUE_API + '/v1/characters');
         this.persons = response.data;
+        this.allQuotes = response.data.reduce((quotes, person) => {
+        return quotes.concat(person.quotes);
+        }, []);
       } catch (error) {
         console.error('Error to load persons:', error);
       }
@@ -56,13 +61,14 @@ export default {
       return quotes.slice(0, this.maxQuotesToShow);
     },
     changeQuotes(person) {
-      const newQuotes = this.getRandomQuotes(person.quotes, 1);
-      person.quotes.splice(0, this.maxQuotesToShow, ...newQuotes);
+      const nextQuote = this.getNextQuote();
+      person.quotes.splice(0, this.maxQuotesToShow, nextQuote);
     },
-    getRandomQuotes(quotes, count) {
-      const shuffledQuotes = quotes.sort(() => 0.5 - Math.random());
-      return shuffledQuotes.slice(0, count);
-    },
+    getNextQuote() {
+      const nextQuote = this.allQuotes[this.currentQuoteIndex];
+      this.currentQuoteIndex = (this.currentQuoteIndex + 1) % this.allQuotes.length;
+      return nextQuote;
+    }
   },
 };
 </script>
