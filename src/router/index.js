@@ -5,8 +5,10 @@ import Persons from "../views/Persons.vue";
 import Quotes from "../views/Quotes.vue";
 import PersonDetail from "../views/PersonDetail.vue";
 import HouseDetail from "../views/HouseDetail.vue";
+import Home from "../views/Home.vue";
 
 const routes = [
+  { path: "/", component: Home },
   { path: "/houses", component: Houses },
   { path: "/persons", component: Persons },
   { path: "/quotes", component: Quotes },
