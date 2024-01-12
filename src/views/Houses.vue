@@ -8,7 +8,7 @@
           </div>
         <div className="collapse-content bg-primary text-primary-content flex flex-col gap-[1rem] peer-checked:bg-secondary peer-checked:text-secondary-content"> 
           <ul v-if="house.members && house.members.length">
-            <li v-for="member in house.members" :key="member.slug">
+            <li v-for="member in house.members" :key="member.slug" class="badge badge-outline p-4 m-2 hover:badge-accent">
               <router-link class="hover:text-primary" :to="{ name: 'detailperson', params: { slug: member.slug } }">
                 {{ member.name }}
               </router-link>

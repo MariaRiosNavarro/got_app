@@ -10,9 +10,9 @@
             </router-link>
           </div>
         <div className="collapse-content bg-primary text-primary-content flex flex-col gap-[1rem] peer-checked:bg-secondary peer-checked:text-secondary-content"> 
-          <div v-if="person.house">
-            <router-link :to="{ name: 'detailhouse', params: { slug: person.house.slug } }">
-              <span class="hover:text-primary">{{ person.house.name }}</span> 
+          <div v-if="person.house" class="badge badge-outline p-4 m-2 hover:badge-accent">
+            <router-link :to="{ name: 'detailhouse', params: { slug: person.house.slug } }" class="hover:text-primary">
+              <span >{{ person.house.name }}</span> 
             </router-link>
           </div>
           <ul v-if="person.quotes && person.quotes.length">
