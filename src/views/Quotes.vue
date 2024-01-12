@@ -1,17 +1,31 @@
 <template>
-  <div>
-    <h2 class="text-2xl font-bold mb-4">GOT Quotes</h2>
-    <ul>
-      <li v-for="quote in quotes" :key="quote.id">
-        {{ quote.sentence }}
-      </li>
-    </ul>
-    <button @click="loadRandomQuotes" class="mt-4">New Random Quotes</button>
+  <div class="w-[100vw] flex justify-center items-center">
+    <div class="card w-[50vw] bg-base-100  border border-primary">
+      <figure class="w-[100%]"><img class="w-[100%] object-cover h-[35vh]" src="../../public/imgGot/logo.png" alt="logo" /></figure>
+      <div class="card-body">
+        <h2 class="card-title text-center">
+          Quotes
+        </h2>
+        <ul class="flex flex-col gap-[2rem]">
+          <li v-for="quote in quotes" :key="quote.id" class="p-8 hover:bg-secondary hover:rounded-xl">
+            <p class="italic"> "{{ quote.sentence }}"</p>  
+              <div class="card-actions justify-end">
+                <div class="badge badge-outline">{{ quote.character.name }}</div> 
+                <div v-if="quote.character.house.name" class="badge badge-outline">
+                    {{ quote.character.house.name }}
+                </div>
+              </div>
+          </li>
+          <button class="btn bg-[#609F9F] text-base-100 hover:bg-accent hover:text-primary" @click="loadRandomQuotes">New Random Quotes</button>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import imgGotLogo from '../../public/imgGot/logo.png'; 
 
 export default {
   name: 'Quotes',

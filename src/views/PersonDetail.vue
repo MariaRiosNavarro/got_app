@@ -1,18 +1,25 @@
 <template>
-  <div>
-    <h2>{{ character?.name }}</h2>
-    <div class="flex flex-col justify-center items-center">
-      <img :src="character?.image" :alt="character?.name">
-      <router-link :to="{ name: 'detailhouse', params: { slug: character?.house?.slug } }">
-        <h3>{{ character?.house?.name }}</h3>
-      </router-link>
+  <div class="w-[100vw] flex justify-center items-center">
+    <div class="card w-96 bg-base-100 shadow-xl">
+      <figure class="px-10 pt-10">
+        <img :src="character?.image" :alt="character?.name" class="rounded-xl" />
+      </figure>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title">{{ character?.name }}'s Quotes</h2>
+        <ul class="flex flex-col gap-[2rem] pb-[2rem]">
+          <li v-for="quote in character.quotes" :key="quote" class="italic">
+            "{{ quote }}"
+          </li>
+        </ul>
+        <div class="card-actions">
+          <router-link :to="{ name: 'detailhouse', params: { slug: character?.house?.slug } }">
+            <button class="btn bg-[#609F9F] text-base-100 hover:bg-accent hover:text-primary"> 
+              {{ character?.house?.name }}
+            </button>
+          </router-link>
+        </div>
+      </div>
     </div>
-    <h3>Quotes:</h3>
-    <ul>
-      <li v-for="quote in character.quotes" :key="quote">
-        {{ quote }}
-      </li>
-    </ul>
   </div>
 </template>
 

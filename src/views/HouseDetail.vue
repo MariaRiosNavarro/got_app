@@ -1,15 +1,21 @@
 <template>
-  <div>
-    <h2>{{ house?.name }}</h2>
-    <img :src="`../../public/imgGot/${house.image}`" :alt="house.name">
-    <h3>Members:</h3>
-    <ul>
-      <li v-for="member in house.members" :key="member.name">
-        <router-link :to="{ name: 'detailperson', params: { slug: member.slug } }">
-          {{ member.name }}
-        </router-link>
-      </li>
-    </ul>
+  <div class="w-[100vw] flex justify-center items-center">
+    <div class="card w-96 bg-base-100 shadow-xl">
+      <figure class="w-[100%]">
+        <img :src="`../../public/imgGot/${house.image}`" :alt="house.name" class="rounded-xl w-[100%]" />
+      </figure>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title">{{ house?.name }}</h2>
+        <ul class="flex flex-col gap-[2rem] pb-[2rem]">
+          <h3>Members:</h3>
+          <li v-for="member in house.members" :key="member.name">
+            <router-link :to="{ name: 'detailperson', params: { slug: member.slug } }">
+              <span class="badge badge-primary">{{ member.name }}</span>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
   
@@ -34,7 +40,6 @@ export default {
         const imgArray = imageNamePng.split(".");
         const imgName = imgArray[0];
         return imgName.includes(houseSlug.toLowerCase())});
-        console.log("match-------------------", matchingImage);
       return matchingImage || imgGotLogo; 
     },
     async loadHouse() {
@@ -42,11 +47,7 @@ export default {
         const slug = this.$route.params.slug;
         const response = await axios.get(`${import.meta.env.VITE_VUE_API}/v1/house/${slug}`);
         const houseData = response.data[0];
-
-        // Obtén el nombre de la imagen
         this.imageName = this.getHouseImageName(houseData.slug);
-        console.log("thisimage-------------------", this.imageName );
-        // Actualiza los datos de la casa con la nueva propiedad
         this.house = {
           ...houseData,
           image: this.imageName,
