@@ -4,7 +4,11 @@
     <ul>
       <li v-for="person in persons" :key="person.slug">
         <details>
-          <summary @click="loadPersons(person.slug)">{{ person.name }}</summary>
+          <summary @click="loadPersons(person.slug)">
+            <router-link :to="{ name: 'detailperson', params: { slug: person.slug } }">
+              <h2>{{ person.name }}</h2>
+            </router-link>
+          </summary>
           <div v-if="person.house">
             <router-link :to="{ name: 'detailhouse', params: { slug: person.house.slug } }">
               {{ person.house.name }}

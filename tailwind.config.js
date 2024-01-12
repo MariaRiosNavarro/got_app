@@ -5,4 +5,7 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
+  fontFamily: {
+    got: ['"got"', "sans"],
+  },
 };
