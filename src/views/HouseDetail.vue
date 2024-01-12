@@ -2,7 +2,7 @@
   <div class="w-[100vw] flex justify-center items-center">
     <div class="card w-96 bg-base-100 shadow-xl">
       <figure class="w-[100%]">
-        <img :src="`../../public/imgGot/${house.image}`" :alt="house.name" class="rounded-xl w-[100%]" />
+        <img :src="`/imgGot/${house.image}`" :alt="house.name" class="rounded-xl w-[100%]" />
       </figure>
       <div class="card-body items-center text-center">
         <h2 class="card-title">{{ house?.name }}</h2>
