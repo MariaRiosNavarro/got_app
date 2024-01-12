@@ -1,20 +1,21 @@
 <template>
-  <div>
+  <div class="w-[100vw] flex flex-col justify-center items-center">
     <h2 class="text-2xl font-bold mb-4">GOT Houses</h2>
-    <ul>
-      <li v-for="house in houses" :key="house.slug">
-        <details>
-          <summary @click="loadHouses(house.slug)">{{ house.name }}</summary>
+      <div v-for="house in houses" :key="house.slug" className="collapse bg-base-200 my-[1rem] w-[50vw]">
+        <input type="checkbox" className="peer" /> 
+          <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-primary-content ">
+            <h4 class="font-bold italic" @click="loadHouses(house.slug)">{{ house.name }}</h4>
+          </div>
+        <div className="collapse-content bg-primary text-primary-content flex flex-col gap-[1rem] peer-checked:bg-secondary peer-checked:text-secondary-content"> 
           <ul v-if="house.members && house.members.length">
             <li v-for="member in house.members" :key="member.slug">
-              <router-link :to="{ name: 'detailperson', params: { slug: member.slug } }">
+              <router-link class="hover:text-primary" :to="{ name: 'detailperson', params: { slug: member.slug } }">
                 {{ member.name }}
               </router-link>
             </li>
           </ul>
-        </details>
-      </li>
-    </ul>
+        </div>
+      </div>
   </div>
 </template>
 

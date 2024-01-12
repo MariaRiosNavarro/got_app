@@ -1,9 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "./assets/fonts/Game\ of\ Thrones.ttf";
-
-.font-got {
-  font-family: "got", serif;
-}
