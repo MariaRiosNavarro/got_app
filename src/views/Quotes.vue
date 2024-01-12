@@ -8,12 +8,14 @@
         </h2>
         <ul class="flex flex-col gap-[2rem]">
           <li v-for="quote in quotes" :key="quote.id" class="p-8 hover:bg-secondary hover:rounded-xl">
-            <p class="italic"> "{{ quote.sentence }}"</p>  
+            <p class="italic py-[1rem]"> "{{ quote.sentence }}"</p>  
               <div class="card-actions justify-end">
-                <div class="badge badge-outline">{{ quote.character.name }}</div> 
-                <div v-if="quote.character.house.name" class="badge badge-outline">
-                    {{ quote.character.house.name }}
-                </div>
+                <router-link class="hover:text-primary" :to="{ name: 'detailperson', params: { slug: quote.character.slug} }">
+                  <div class="badge badge-outline p-4">{{ quote.character.name }}</div> 
+                </router-link>
+                <router-link class="hover:text-primary" :to="{ name: 'detailhouse', params: { slug: quote.character.house.slug} }">
+                  <div v-if="quote.character.house.name" class="badge badge-outline p-4">{{ quote.character.house.name }}</div> 
+                </router-link>
               </div>
           </li>
           <button class="btn bg-[#609F9F] text-base-100 hover:bg-accent hover:text-primary" @click="loadRandomQuotes">New Random Quotes</button>

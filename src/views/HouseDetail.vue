@@ -10,7 +10,7 @@
           <h3>Members:</h3>
           <li v-for="member in house.members" :key="member.name">
             <router-link :to="{ name: 'detailperson', params: { slug: member.slug } }">
-              <span class="badge badge-primary">{{ member.name }}</span>
+              <span class="badge badge-primary p-4">{{ member.name }}</span>
             </router-link>
           </li>
         </ul>
