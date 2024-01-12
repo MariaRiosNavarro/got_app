@@ -7,7 +7,9 @@
           <summary @click="loadHouses(house.slug)">{{ house.name }}</summary>
           <ul v-if="house.members && house.members.length">
             <li v-for="member in house.members" :key="member.slug">
-              {{ member.name }}
+              <router-link :to="{ name: 'detailperson', params: { slug: member.slug } }">
+                {{ member.name }}
+              </router-link>
             </li>
           </ul>
         </details>
@@ -32,10 +34,8 @@ export default {
   methods: {
     async loadHouses() {
       try {
-        const response = await axios.get('/api/v1/houses');
-        this.houses = response.data;
-        console.log(response.data);
-        
+        const response = await axios.get(import.meta.env.VITE_VUE_API+'/v1/houses');
+        this.houses = response.data;      
       } catch (error) {
         console.error('Error to load Houses:', error);
       }

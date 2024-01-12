@@ -26,7 +26,7 @@ export default {
   methods: {
     async loadRandomQuotes() {
       try {
-        const response = await axios.get('/api/v1/random/5');
+        const response = await axios.get(import.meta.env.VITE_VUE_API+'/v1/random/5');
         this.quotes = response.data;      
       } catch (error) {
         console.error('Error to load Quotes:', error);

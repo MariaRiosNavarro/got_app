@@ -6,7 +6,9 @@
         <details>
           <summary @click="loadPersons(person.slug)">{{ person.name }}</summary>
           <div v-if="person.house">
-            <p>House: {{ person.house.name }}</p>
+            <router-link :to="{ name: 'detailhouse', params: { slug: person.house.slug } }">
+                {{ person.house.name }}
+            </router-link>
           </div>
           <ul v-if="person.quotes && person.quotes.length">
             <li v-for="quote in person.quotes" :key="quote">
@@ -35,10 +37,8 @@ export default {
   methods: {
     async loadPersons() {
       try {
-        const response = await axios.get('/api/v1/characters');
-        this.persons = response.data;
-        console.log(response.data);
-        
+        const response = await axios.get(import.meta.env.VITE_VUE_API+'/v1/characters');
+        this.persons = response.data;       
       } catch (error) {
         console.error('Error to load persons:', error);
       }
