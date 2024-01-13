@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[100vw] flex justify-center items-center">
+  <div class="w-[100vw] flex justify-center items-center px-4">
     <div class="card md:w-[50vw] mx-2 bg-base-100  border border-primary">
       <figure class="w-[100%] bg-[#19110F]"><img class="w-[100%] object-contain md:object-cover h-[35vh]" src="/imgGot/logo.png" alt="logo" /></figure>
       <div class="card-body">

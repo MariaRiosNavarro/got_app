@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[100vw] flex justify-center items-center">
+  <div class="w-[100vw] flex justify-center items-center px-4">
     <div class="card w-96 bg-base-100 shadow-xl">
       <figure class="w-[100%]">
         <img :src="`/imgGot/${house.image}`" :alt="house.name" class="rounded-xl w-[100%]" />

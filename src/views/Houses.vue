@@ -1,7 +1,7 @@
 <template>
-  <div class="w-[100vw] flex flex-col justify-center items-center">
+  <div class="w-[100vw] flex flex-col justify-center items-center px-4">
     <h2 class="text-2xl font-bold mb-4">GOT Houses</h2>
-      <div v-for="house in houses" :key="house.slug" className="collapse bg-base-200 my-[1rem] w-[50vw]">
+      <div v-for="house in houses" :key="house.slug" className="collapse bg-base-200 my-4  md:w-[50vw]">
         <input type="checkbox" className="peer" /> 
           <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-primary-content after:content-['↓'] peer-checked:after:content-['↑']  ">
             <h4 class="font-bold italic " @click="loadHouses(house.slug)">{{ house.name }} </h4>
