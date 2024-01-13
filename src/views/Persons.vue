@@ -5,9 +5,7 @@
       <div v-for="person in persons" :key="person.slug" className="collapse bg-base-200 my-4 md:w-[50vw]">
         <input type="checkbox" className="peer" /> 
           <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-primary-content after:content-['↓'] peer-checked:after:content-['↑']  ">
-            <router-link :to="{ name: 'detailperson', params: { slug: person.slug } }">
               <h4 class="font-bold italic" @click="loadPersons(person.slug)">{{ person.name }}</h4>
-            </router-link>
           </div>
         <div className="collapse-content bg-primary text-primary-content flex flex-col gap-[1rem] peer-checked:bg-secondary peer-checked:text-secondary-content"> 
           <div v-if="person.house" class="badge badge-outline p-4 m-2 hover:badge-accent">
@@ -23,6 +21,9 @@
               </div>
             </li>
           </ul>
+          <router-link class="hover:text-primary" :to="{ name: 'detailperson', params: { slug:person.slug } }">
+            <p>More quotes from: <span class="underline hover:text-primary">{{ person.name }}</span></p>
+          </router-link>
           <button class="btn bg-[#609F9F] text-base-100 hover:bg-accent hover:text-primary" @click="changeQuotes(person)">Change Quote</button>
         </div>
       </div>

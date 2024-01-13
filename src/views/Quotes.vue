@@ -15,7 +15,7 @@
                      {{ quote.character.name }}
                   </router-link>
                 </div> 
-                <div v-if="quote.character.house.name" class="badge badge-outline p-4">
+                <div v-if="quote.character.house.name" class="badge badge-outline p-4 h-auto">
                     <router-link class="hover:text-primary" :to="{ name: 'detailhouse', params: { slug: quote.character.house.slug} }">
                      {{ quote.character.house.name }}
                     </router-link>

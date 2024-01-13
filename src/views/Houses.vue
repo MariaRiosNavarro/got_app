@@ -6,14 +6,17 @@
           <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-primary-content after:content-['↓'] peer-checked:after:content-['↑']  ">
             <h4 class="font-bold italic " @click="loadHouses(house.slug)">{{ house.name }} </h4>
           </div>
-        <div className="collapse-content bg-primary text-primary-content flex flex-col gap-[1rem] peer-checked:bg-secondary peer-checked:text-secondary-content"> 
-          <ul v-if="house.members && house.members.length">
-            <li v-for="member in house.members" :key="member.slug" class="badge badge-outline p-4 m-2 hover:badge-accent">
-              <router-link class="hover:text-primary" :to="{ name: 'detailperson', params: { slug: member.slug } }">
-                {{ member.name }}
-              </router-link>
-            </li>
-          </ul>
+          <div className="collapse-content bg-primary text-primary-content flex flex-col gap-[1rem] peer-checked:bg-secondary peer-checked:text-secondary-content"> 
+            <ul v-if="house.members && house.members.length">
+              <li v-for="member in house.members" :key="member.slug" class="badge badge-outline p-4 m-2 hover:badge-accent">
+                <router-link class="hover:text-primary" :to="{ name: 'detailperson', params: { slug: member.slug } }">
+                  {{ member.name }}
+                </router-link>
+              </li>
+            </ul>
+            <router-link class="hover:text-primary" :to="{ name: 'detailhouse', params: { slug:house.slug } }">
+              <p>More Infos about: <span class="underline hover:text-primary">{{ house.name }}</span></p>
+            </router-link>
         </div>
       </div>
   </div>
@@ -21,26 +24,29 @@
 
 <script>
 import axios from 'axios';
+import { RouterLink } from 'vue-router';
 
 export default {
-  name: 'Houses',
-  data() {
-    return {
-      houses: [],
-    };
-  },
-  created() {
-    this.loadHouses();
-  },
-  methods: {
-    async loadHouses() {
-      try {
-        const response = await axios.get(import.meta.env.VITE_VUE_API+'/v1/houses');
-        this.houses = response.data;      
-      } catch (error) {
-        console.error('Error to load Houses:', error);
-      }
+    name: 'Houses',
+    data() {
+        return {
+            houses: [],
+        };
     },
-  },
+    created() {
+        this.loadHouses();
+    },
+    methods: {
+        async loadHouses() {
+            try {
+                const response = await axios.get(import.meta.env.VITE_VUE_API + '/v1/houses');
+                this.houses = response.data;
+            }
+            catch (error) {
+                console.error('Error to load Houses:', error);
+            }
+        },
+    },
+    components: { RouterLink }
 };
 </script>
