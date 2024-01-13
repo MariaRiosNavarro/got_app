@@ -1,5 +1,6 @@
 export const shieldImages = [
   "baelish.PNG",
+  "bolton.png",
   "baratheon.PNG",
   "greyjoy.PNG",
   "lannister.PNG",

@@ -2,7 +2,7 @@
   <div class="w-[100vw] flex justify-center items-center px-4">
     <div class="card w-96 bg-base-100 shadow-xl">
       <figure class="w-[100%]">
-        <img :src="`/imgGot/${house.image}`" :alt="house.name" class="rounded-xl w-[100%]" />
+        <img :src="getImageUrl(house.image)" :alt="house.name" class="rounded-xl w-[100%]" />
       </figure>
       <div class="card-body items-center text-center">
         <h2 class="card-title">{{ house?.name }}</h2>
@@ -25,6 +25,8 @@ import axios from 'axios';
 import { shieldImages } from '../data/shieldImages.js';
 
 
+
+
 export default {
   name: 'HouseDetail',
   data() {
@@ -35,6 +37,11 @@ export default {
     };
   },
   methods: {
+
+    getImageUrl(name) { 
+      return new URL(`../assets/imgGot/${name}`, import.meta.url).href
+    },
+
     getHouseImageName(houseSlug) {
       const matchingImage = shieldImages.find((imageNamePng) =>{
         const imgArray = imageNamePng.split(".");
@@ -42,6 +49,7 @@ export default {
         return imgName.includes(houseSlug.toLowerCase())});
       return matchingImage 
     },
+
     async loadHouse() {
       try {
         const slug = this.$route.params.slug;
