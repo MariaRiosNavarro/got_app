@@ -34,7 +34,7 @@ Each house can be displayed with one click, offering information about the membe
 
 ### Persons
 
-Each character can be displayed with a click, giving information about their home and giving one of their quotes. These quote can be changed by clicking on the button that appears. A house badge is displayed below the name and it is a link to the Detail House page.
+Each character can be displayed with a click, giving information about their home and giving one of their quotes. These quote can be changed by clicking on the button that appears. The house badge is a link to the Detail House page.
 
 ![houses](/public/imgReadme/persons.png)
 ![houses](/public/imgReadme/persons2.png)
