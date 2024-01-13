@@ -52,7 +52,6 @@ export default {
           ...houseData,
           image: this.imageName,
         };
-        console.log("House with image:", this.house);
       } catch (error) {
         console.error('Load Error:', error);
       }

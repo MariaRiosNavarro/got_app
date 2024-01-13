@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center min-h-[6rem] md:navbar bg-base-100">
+  <div class="flex flex-col items-center min-h-[6rem] pb-4  md:navbar md:flex-row md:pb-0 bg-base-100">
     <div class="flex-1">
       <h1 class="btn btn-ghost text-xl"><router-link to="/">GOT-Quotes</router-link></h1>
     </div>
