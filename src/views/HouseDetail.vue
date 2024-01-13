@@ -23,7 +23,7 @@
 <script>
 import axios from 'axios';
 import { shieldImages } from '../data/shieldImages.js';
-import imgGotLogo from '../../public/imgGot/logo.png'; 
+
 
 export default {
   name: 'HouseDetail',
@@ -31,7 +31,7 @@ export default {
     return {
       house: {},
       imageName: '', 
-      imgGotLogo,
+
     };
   },
   methods: {
@@ -40,7 +40,7 @@ export default {
         const imgArray = imageNamePng.split(".");
         const imgName = imgArray[0];
         return imgName.includes(houseSlug.toLowerCase())});
-      return matchingImage || imgGotLogo; 
+      return matchingImage 
     },
     async loadHouse() {
       try {
