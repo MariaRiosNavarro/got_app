@@ -58,6 +58,19 @@ Information with shield of all members of the house, each of them has a link to 
 ![houses](/public/imgReadme/houseDetail.png)
 ![houses](/public/imgReadme/houseDetail2.png)
 
+### Mobile Version
+
+<div align="center">
+
+<img src="./public/imgReadme/m0.png" alt="readme mobile" width="200px"/>
+<img src="./public/imgReadme/m1.png" alt="readme mobile" width="200px"/>
+<img src="./public/imgReadme/m2.png" alt="readme mobile" width="200px"/>
+<img src="./public/imgReadme/m3.png" alt="readme mobile" width="200px"/>
+<img src="./public/imgReadme/m4.png" alt="readme mobile" width="200px"/>
+<img src="./public/imgReadme/m5.png" alt="readme mobile" width="200px"/>
+
+</div>
+
 
 
 
